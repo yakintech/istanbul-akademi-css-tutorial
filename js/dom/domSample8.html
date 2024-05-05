@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Name: </label>
+        <input type="text" id="city" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <hr>
+    <ul id="cities">
+
+    </ul>
+</body>
+<script>
+        var cities = ["İzmir", "Ankara", "İstanbul", "Aydın", "Muğla", "Diyarbakır", "Erzurum", "Trabzon","Edirne","Antalya"]
+
+
+    for(i = 0; i < cities.length; i++){
+        var liElement = document.createElement("li")
+        liElement.innerHTML = cities[i]
+        document.getElementById("cities").appendChild(liElement)
+    }
+
+    //butona bastığında add fonksiyonu çalışır. Eğer mevcut şehir varsa EKLEME!
+    function add(){
+        var cityName = document.getElementById("city").value;
+
+        if(cities.includes(cityName)){
+            alert("Böyle bir şehir mevcut!")
+        }
+        else{
+            var liElement = document.createElement("li")
+            liElement.innerHTML = cityName
+
+            document.getElementById("cities").appendChild(liElement)
+
+            //Yukarıdaki cities dizisine elemanı ekliyorum.
+            cities.push(cityName)
+        }
+    }
+
+
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Data:</label>
+        <input type="text" id="data" />
+    </div>
+    <hr>
+    <div>
+        <button onclick="upperData()">to Upper</button>
+    </div>
+    <hr>
+    <div>
+        <button onclick="trimData()">Trim</button>
+    </div>
+
+
+</body>
+<script>
+    function upperData(){
+        //mevcut kelimeyi büyüt ve ekrana alert olarak yazdır!
+        var data = document.getElementById("data").value
+        var upperData = data.toUpperCase()
+        alert(upperData)
+    }
+
+    function trimData(){
+        var data = document.getElementById("data").value
+        var trimData = data.trim()
+        alert(trimData)
+    }
+
+</script>
+</html>

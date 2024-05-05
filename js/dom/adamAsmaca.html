@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* basic input, label style */
+         input[type="text"]{
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin: 10px 0;
+          }
+          label{
+                display: block;
+                margin: 10px 0;
+          }
+          button{
+                padding: 10px;
+                background-color: red;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+          }
+          button:hover{
+                background-color: #45a049;
+          }
+          button:active{
+                background-color: #3e8e41;
+          }
+
+    </style>
+</head>
+<body>
+    <div>
+            <label for="">Char</label>
+            <input type="text" id="char" />
+            <button onclick="find()">Find</button>
+    </div>
+    <hr>
+    <button onclick="start()">Start</button>
+    <div id="game" style="display: flex; justify-content: space-between; width: 500px;">
+
+    </div>
+    
+</body>
+<script>
+    var cities =["Adana","Adiyaman","Afyon","Agri","Aksaray","Amasya","Ankara","Antalya","Ardahan","Artvin","Aydin","Balikesir","Bartin","Batman","Bayburt","Bilecik","Bingol","Bitlis","Bolu","Burdur","Bursa","Canakkale","Cankiri","Corum","Denizli","Diyarbakir","Duzce","Edirne","Elazig","Erzincan","Erzurum","Eskisehir","Gaziantep","Giresun","Gumushane","Hakkari","Hatay","Igdir","Isparta","Istanbul","Izmir","Kahramanmaras","Karabuk","Karaman","Kars","Kastamonu","Kayseri","Kilis","Kirikkale","Kirklareli","Kirsehir","Kocaeli","Konya","Kutahya","Malatya","Manisa","Mardin","Mersin","Mugla","Mus","Nevsehir","Nigde","Ordu","Osmaniye","Rize","Sakarya","Samsun","Sanliurfa","Siirt","Sinop","Sirnak","Sivas","Tekirdag","Tokat","Trabzon","Tunceli","Usak","Van","Yalova","Yozgat","Zonguldak"]
+
+    var randomCity = "";
+    var lifeCount = 0;
+
+    function start(){
+
+        //HER START DEDİGİNDE YARIŞMA ALANINI TEMİZLİYORUM!
+        document.getElementById("game").innerHTML = ""
+
+        //Öncelikle random bir şehir yakalıyorum!
+        var randomCityIndex = Math.floor(Math.random() * cities.length)
+        randomCity = cities[randomCityIndex].toLowerCase() // RİZE
+
+        //yaşamk hakkı kelimedeki harf sayısı kadar!
+        lifeCount = randomCity.length
+       
+        //şehrin harf sayısı kadar _ işareti ekrana basıyorum
+        for(i = 0; i < randomCity.length; i++){
+            var h1Element = document.createElement("h1")
+            h1Element.innerHTML = "_"
+            h1Element.id = "h1_" + i
+
+            document.getElementById("game").appendChild(h1Element)
+        }
+
+
+    }
+
+
+    function find(){
+
+        var userChar = document.getElementById("char").value.toLowerCase();
+
+        //Kullanıcının girdiği HARF kelimede var mı?
+        if(randomCity.includes(userChar)){
+
+            //girilen harfin kaçıncı karakterde oldugunu bulmam gerek!
+            for(i = 0; i < randomCity.length; i ++){
+                if(randomCity[i] == userChar){
+                    document.getElementById("h1_" + i).innerHTML = userChar
+                }
+            }
+        }
+        else{
+            lifeCount--;
+            if(lifeCount == 0){
+                alert("by by goçum!")
+            }
+        }
+        
+    }
+
+
+</script>
+</html>
