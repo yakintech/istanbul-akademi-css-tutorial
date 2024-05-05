@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="mainImage" src="" alt="" width="600" height="450">
+</body>
+<script>
+
+    var images = ["ayi1.jpg", "ayi2.jpg", "ayi3.jpeg"]
+
+
+    var indexNo = 0
+    setInterval(() => {
+
+        document.getElementById("mainImage").src = images[indexNo]
+        indexNo++
+        if (indexNo == 3)
+            indexNo = 0
+
+    }, 500);
+
+</script>
+
+</html>
