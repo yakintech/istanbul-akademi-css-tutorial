@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="goRight()">Right</button>
+    <hr>
+
+    <div id="box" style="width: 200px; height: 200px; border-style: solid; background-color: tomato;">
+
+    </div>
+</body>
+<script>
+
+    var right = 0;
+    function goRight(){
+        right = right + 100
+        document.getElementById("box").style.marginLeft = right + "px"
+
+    }
+</script>
+</html>

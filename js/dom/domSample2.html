@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <label for="">Şehir</label>
+        <input id="city" type="text" />
+    </div>
+    <div>
+        <button onclick="addNewCity()">Add</button>
+    </div>
+    <div>
+        <ul id="cities">
+            <li>İzmir</li>
+            <li>İstanbul</li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    function addNewCity(){
+        //Öncelikle kullanıcının inputa girdiği değeri yakalıyorum
+        var cityName = document.getElementById("city").value
+
+        //yeni bir li oluşturuyorum ve oluşturduğum li içerisine inputtaki değeri yazıyorum.
+        var liElement = document.createElement("li")
+        liElement.innerHTML = cityName
+
+        document.getElementById("cities").appendChild(liElement)
+
+        //İşlem bittikten sonra input değerini boşaltıyorum
+        document.getElementById("city").value = ""
+    }
+</script>
+</html>

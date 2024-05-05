@@ -14,3 +14,6 @@ CSS Tutorial
 https://www.youtube.com/watch?v=yJsq0bqChko&list=PLadt0EaV4m3BX9JaZbKS9B8076bruv93Y&ab_channel=AdemIlter
 
 
+JQuery Dersleri (İzlenecek kesinlikle uygulama YAPILMAYACAK! sadece boş boş izle!)
+https://www.youtube.com/watch?v=ynG3u3I669o&ab_channel=Yak%C4%B1nKamp%C3%BCs
+

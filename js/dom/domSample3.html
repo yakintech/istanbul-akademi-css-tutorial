@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="addRandomBox()">Add Random Box</button>
+    <hr>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    function addRandomBox(){
+        //Her click oldugunda rastgele bir div oluştur ve bu dive rastgele bir pozisyon ver ve son olarak container içerisine ekle!
+        var divElement = document.createElement("div")
+        divElement.style.position = "fixed"
+        divElement.style.width = "70px"
+        divElement.style.height = "70px"
+        divElement.style.backgroundColor = "tomato"
+
+        var randomLeft = Math.floor(Math.random() *  screen.width) //1440
+        var randomTop = Math.floor(Math.random() *  screen.height); ///900
+        console.log(randomLeft)
+        divElement.style.left = randomLeft + "px";
+        divElement.style.top = randomTop + "px";
+
+
+        document.getElementById("container").appendChild(divElement)
+
+    }
+</script>
+
+</html>
