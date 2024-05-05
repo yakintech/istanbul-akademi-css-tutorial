@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Genislik</label>
+        <input type="text" id="genislik" />
+    </div>
+    <div>
+        <label for="">Yükselik</label>
+        <input type="text" id="yukseklik" />
+    </div>
+    <div>
+        <label for="">Renk</label>
+        <input type="text" id="renk" />
+    </div>
+    <div>
+        <button onclick="olustur()">Oluştur</button>
+    </div>
+    <hr>
+    <div id="container">
+
+    </div>
+
+</body>
+<script>
+    function olustur(){
+        var divElement = document.createElement("div")
+        
+        divElement.style.width = document.getElementById("genislik").value + "px"
+        divElement.style.height = document.getElementById("yukseklik").value + "px"
+        divElement.style.backgroundColor = document.getElementById("renk").value
+
+        document.getElementById("container").appendChild(divElement)
+    }
+</script>
+</html>

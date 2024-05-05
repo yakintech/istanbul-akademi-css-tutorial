@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Count:</label>
+        <input type="text" id="count" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <hr>
+
+    <ul id="numbers">
+        <li>20</li>
+        <li>11</li>
+    </ul>
+</body>
+<script>
+    //butona bastığında inputaki değer kadar random sayı üretip(1-100 arasında) ul ye eklesin
+    function add(){
+        var count = document.getElementById("count").value
+
+        for(i = 0; i < count; i++){
+            //öncelikle bir element create ediyorum
+            var liElement = document.createElement("li")
+
+            //rastgele bir sayı ürettim ve bu sayıyı li içerisine koydum
+            var randomNumber = Math.floor(Math.random() * 100)
+            liElement.innerHTML = randomNumber
+
+            //Oluşturduğum li yi ul içerisine ekledim
+            document.getElementById("numbers").appendChild(liElement)
+        }
+
+    }
+</script>
+</html>

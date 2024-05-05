@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table css */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* label input button css */
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        input {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+    </style>
+</head>
+<body style="padding: 3%;">
+
+    <div>
+        <label for="">Name:</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="">Surname:</label>
+        <input type="text" id="surname" />
+    </div>
+    <div>
+        <label for="">Age:</label>
+        <input type="text" id="age" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <hr>
+
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="users">
+            <tr>
+                <td>Çağatay</td>
+                <td>Yıldız</td>
+                <td>18</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    
+    function add(){
+
+        var name = document.getElementById("name").value;
+        var surname = document.getElementById("surname").value;
+        var age = document.getElementById("age").value;
+
+        var trElement = document.createElement("tr")
+
+        //name hücresini oluşturdum
+        var tdNameElement = document.createElement("td")
+        tdNameElement.innerHTML = name
+
+        //surname hücresi oluşturdum
+        var tdSurnameElement = document.createElement("td")
+        tdSurnameElement.innerHTML = surname;
+
+        //age hücresini oluşturdum
+        var tdAgeElement = document.createElement("td")
+        tdAgeElement.innerHTML = age
+
+        //oluşturduğum hücreleri satıra ekliyorum ( trelement)
+        trElement.appendChild(tdAgeElement)
+        trElement.appendChild(tdNameElement)
+        trElement.appendChild(tdSurnameElement)
+
+
+        //Son olarak o satırı tabloma (tbody) ekliyorum
+        document.getElementById("users").appendChild(trElement)
+
+
+    }
+
+</script>
+</html>

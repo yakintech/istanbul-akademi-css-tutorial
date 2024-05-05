@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Source:</label>
+        <input type="text" id="source" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <hr>
+    <div id="container">
+        
+    </div>
+</body>
+<script>
+    function add(){
+        var sourceURL = document.getElementById("source").value;
+
+        var imageElement = document.createElement("img")
+        imageElement.src = sourceURL
+
+        document.getElementById("container").appendChild(imageElement)
+
+    }
+</script>
+</html>
