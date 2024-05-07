@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="data">
+
+    </ul>
+</body>
+<script>
+      var countries = ["Türkiye", "Suriye", "Rusya","Yunanistan", "Azerbaycan"]
+
+      countries.map(function(item){
+        var liElement = document.createElement("li");
+        liElement.innerHTML = item;
+
+        document.getElementById("data").appendChild(liElement)
+  
+      })
+</script>
+</html>

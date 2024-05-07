@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    var cities = ["İstanbul", "Ankara", "İzmir", "Edirne", "Siirt", " Kayseri", "Antalya"]
+
+    cities.forEach(function(item){
+        console.log("City:", item);
+    })
+
+
+
+
+    for (i = 0; i < cities.length; i++) {
+        console.log(cities[i]);
+    }
+
+    cities.forEach(myFunction)
+    function myFunction(item) {
+        console.log(item)
+    }
+
+
+    //parameters => string, number, boolean, FUNCTION
+    function calc(x, y, z) {
+        var data = x * y
+
+        z(data)
+    }
+
+    calc(10,5,print)
+
+
+
+    function print(q){
+        console.log("SONUÇ: ", q)
+    }
+
+</script>
+
+</html>
