@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* Product list style. Container, box and h1,h4,p like ecommerce style */
+    #container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+    }
+    h1{
+        font-size: 20px;
+        color: #333;
+    }
+    h4{
+        font-size: 16px;
+        color: #666;
+    }
+    p{
+        font-size: 18px;
+        color: #f00;
+    }
+         
+    </style>
+</head>
+<body>
+    <h1>Ürünler</h1>
+    <hr>
+    <div id="container">
+       
+        <!-- <div class="box">
+            <h1>Id</h1>
+            <h4>Name</h4>
+            <p>5.500</p>
+        </div> -->
+        
+    </div>
+</body>
+<script>
+    let products = [
+        {
+            id:1,
+            name:"IPhone",
+            price:5500
+        },
+        {
+            id:2,
+            name:"Samsung",
+            price:3000
+        },
+        {
+            id:3,
+            name:"Huawei",
+            price:3500
+        },
+        {
+            id:4,
+            name:"Oppo",
+            price:2000
+        },
+        {
+            id:5,
+            name:"Vestel",
+            price:1000
+        }
+    ]
+
+
+    products.forEach(function(item){
+        var divElement = document.createElement("div")
+        divElement.classList.add("box")
+
+        var h1Element = document.createElement("h1")
+        h1Element.innerHTML = item.id
+
+        var h4Element = document.createElement("h4")
+        h4Element.innerHTML = item.name
+
+        var pElement = document.createElement("p")
+        pElement.innerHTML = item.price
+
+        divElement.appendChild(h1Element)
+        divElement.appendChild(h4Element)
+        divElement.appendChild(pElement)
+
+        document.getElementById("container").appendChild(divElement)
+
+    })
+
+</script>
+</html>

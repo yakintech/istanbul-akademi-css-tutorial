@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="load()">Load</button>
+    <button onclick="clearAll()">Clear</button>
+    <hr>
+    <h1>Length:
+        <span id="length"></span>
+    </h1>
+    <ul id="userList">
+
+    </ul>
+</body>
+<script>
+    let users = [
+        {
+            id: 1,
+            name: "Çağatay",
+            surname: "Yıldız"
+        },
+        {
+            id: 2,
+            name: "Müge",
+            surname: "Çalışkan"
+        },
+        {
+            id: 3,
+            name: "Aykut",
+            surname: "Arslan"
+        }
+    ]
+
+    //Butona bastığında yukarıdaki user listesini ul içerisine id-ad soyad şeklinde yazdırsın. ( 1- Çağatay Yıldız )
+
+    function load() {
+        //Öncelikle ul içerisini boşaltıyorum
+        document.getElementById("userList").innerHTML = ""
+
+        users.forEach(function (item) {
+            var liElement = document.createElement("li")
+            liElement.innerHTML = item.id + "-" + " " + item.name + " " + item.surname
+
+            document.getElementById("userList").appendChild(liElement)
+        })
+
+        document.getElementById("length").innerHTML = users.length
+
+    }
+
+
+    function clearAll() {
+        document.getElementById("userList").innerHTML = ""
+    }
+</script>
+
+</html>
