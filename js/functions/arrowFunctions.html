@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function hello() {
+        alert("Hello!")
+    }
+
+    var hello2 = function () {
+        alert("Hello!")
+    }
+
+    //arrow function
+    var hello3 = () => {
+        alert("Hello!")
+    }
+
+
+
+    function calc(x, y) {
+        return x * y;
+    }
+
+    //eğer bir fonksiyon tek satır ise ve o satır return ediyorsa arrow functionda scope yazmak zorunda değilsiniz
+    const calc2 = (x, y) => x * y
+
+    const calc3 = (x, y) => {
+        return x * y
+    }
+
+
+    const cities = ["İzmri", "Ankara", "İstanbul"]
+
+    cities.forEach(function(item){
+        console.log(item)
+    })
+
+
+    cities.forEach((item) => {
+        console.log(item)
+    })
+
+
+</script>
+
+</html>
