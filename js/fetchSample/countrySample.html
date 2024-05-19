@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .searchBox {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .searchBox div {
+            margin: 10px;
+        }
+
+        .searchBox input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .searchBox button {
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .city {
+            display: flex;
+            margin-top: 20px;
+            flex-direction: column;
+        }
+
+        .city h1 {
+            margin: 10px;
+        }
+
+        .city span {
+            color: red;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin: 5px;
+        }
+
+        h3 {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="searchBox">
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="" id="countryName">
+        </div>
+        <div>
+            <button onclick="getCountry()">GET</button>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img id="countryImage" src="" alt="">
+            <p id="countryDescription"></p>
+        </div>
+        <div>
+            <h1>Name: <span id="name"></span></h1>
+            <h1>Region: <span id="region"></span></h1>
+            <h1>Capital: <span id="capital"></span></h1>
+            <h1>Borders: <span id="borders"></span></h1>
+            <h1>Population: <span id="population"></span></h1>
+        </div>
+    </div>
+</body>
+<script>
+
+    function getCountry() {
+
+        var name = document.getElementById("countryName").value
+
+        fetch(`https://restcountries.com/v3.1/name/${name}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("countryImage").src = data[0].flags.png
+                document.getElementById("countryDescription").innerHTML = data[0].flags.alt
+                document.getElementById("name").innerHTML = data[0].name.common
+                document.getElementById("region").innerHTML = data[0].region
+                document.getElementById("borders").innerHTML = data[0].borders
+                document.getElementById("capital").innerHTML = data[0].capital
+                document.getElementById("population").innerHTML = data[0].population
+            })
+    }
+
+</script>
+
+</html>
