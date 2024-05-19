@@ -97,13 +97,15 @@
         .then(data => {
             let tbody = document.querySelector("tbody");
 
-            data.forEach(customer => {
+            data.forEach((customer) => {
                 let tr = document.createElement("tr");
                 tr.innerHTML = `
                     <td>${customer.id}</td>
                     <td>${customer.companyName}</td>
                     <td>${customer.contactName}</td>
                 `;
+
+                
                 tbody.appendChild(tr);
             });
         });
