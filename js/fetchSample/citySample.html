@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .searchBox {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .searchBox div {
+            margin: 10px;
+        }
+
+        .searchBox input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .searchBox button {
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .city {
+            display: flex;
+            margin-top: 20px;
+            flex-direction: column;
+        }
+
+        .city h1 {
+            margin: 10px;
+        }
+
+        .city span {
+            color: red;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin: 5px;
+        }
+
+        h3 {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="searchBox">
+        <div>
+            <label for="">City Name</label>
+            <input type="text" name="" id="cityName">
+        </div>
+        <div>
+            <button onclick="getCity()">GET</button>
+        </div>
+    </div>
+    <div class="city">
+        <h1>Name: <span id="name"></span></h1>
+        <h1>Population: <span id="population"></span></h1>
+        <h1>Phone Number: <span id="areaCode"></span></h1>
+        <h1>Region: <span id="region"></span></h1>
+        <h1>Latitude: <span id="latitude"></span></h1>
+        <h1>Longitude: <span id="longitude"></span></h1>
+
+        <hr>
+        <h3>Districts</h3>
+        <ul id="districts">
+
+        </ul>
+    </div>
+</body>
+<script>
+    function getCity() {
+
+        document.querySelector("ul").innerHTML = ""
+
+        var cityName = document.getElementById("cityName").value.toLowerCase()
+
+
+        fetch("https://turkiyeapi.dev/api/v1/provinces?name=" + cityName)
+            .then(res => {
+                if (res.status == 200) {
+                    return res.json()
+                }
+                else if (res.status == 404) {
+                    alert("Lütfen düzgün bir şehir adı giriniz!")
+                }
+                else{
+                    alert("Bir hata meydana geldi")
+                }
+            })
+            .then(result => {
+
+                document.getElementById("name").innerHTML = result.data[0].name
+                document.getElementById("population").innerHTML = result.data[0].population
+                document.getElementById("areaCode").innerHTML = result.data[0].areaCode
+                document.getElementById("region").innerHTML = result.data[0].region.tr
+                document.getElementById("latitude").innerHTML = result.data[0].coordinates.latitude
+                document.getElementById("longitude").innerHTML = result.data[0].coordinates.longitude
+
+
+
+                result.data[0].districts.forEach(element => {
+                    let liElement = document.createElement("li")
+                    liElement.innerHTML = element.name
+
+                    document.querySelector("ul").appendChild(liElement)
+                });
+
+            })
+            // .catch(err => {
+            //     alert("Sunucuda bir hata meydana geldi!")
+            // })
+
+    }
+</script>
+
+</html>
