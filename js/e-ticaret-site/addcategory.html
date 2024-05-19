@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .contact div {
+            margin: 10px;
+        }
+
+        .contact label {
+            display: block;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 300px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        .contact button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="addcategory.html">Add Category</a></li>
+        </ul>
+    </nav>
+    <h1>Add Category Page</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+
+    <div class="contact">
+        <div>
+            <label for="">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="">Description:</label>
+            <textarea name="" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button onclick="add()">Add</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2020
+    </footer>
+</body>
+<script>
+
+    function add() {
+        let name = document.getElementById("name").value
+        let description = document.getElementById("description").value
+
+        let newCategory = {
+            name: name,
+            description: description
+        }
+
+        fetch("https://northwind.vercel.app/api/categories", {
+           method:"POST",
+           headers:{
+            "Content-Type":"application/json"
+           },
+           body: JSON.stringify(newCategory) // JS objesini json a çevirir
+        })
+            .then(res => {
+                console.log("Response ", res)
+                alert("Kategori başarıyla eklendi!")
+            })
+
+
+    }
+
+</script>
+
+</html>

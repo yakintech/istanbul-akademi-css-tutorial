@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .categories .box {
+            width: 200px;
+            height: 200px;
+            background-color: #f4f4f4;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .box h2 {
+            color: #333;
+        }
+
+        .box h3 {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /* Basic home page design */ -->
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="addcategory.html">Add Category</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome to our e-commerce site</h1>
+    <p>Here you can find the best products with the best prices.</p>
+    <p>Don't forget to check our products page.</p>
+    <p>And don't forget to add your favorite products to your cart.</p>
+    <hr>
+    <!-- Categories box -->
+    <div class="categories">
+        <!-- <div class="box">
+            <h2>Name</h2>
+            <h3>Description</h3>
+        </div> -->
+    </div>
+
+    <hr>
+    <footer>
+        <p>&copy; 2020 E-commerce site</p>
+    </footer>
+</body>
+<script>
+
+    //Aşağıdak, fetch satırı içerisine aldığı URL e GET isteği yapar
+    fetch("https://northwind.vercel.app/api/categories")
+        .then(res => res.json()) // bu kod ile body içerisindeki data okunur!
+        .then(data => { // Buradaki data body içerisinde gelen objem
+
+            data.forEach(element => {
+                var divElement = document.createElement("div");
+                divElement.className = "box";
+
+                var h2Element = document.createElement("h2");
+                h2Element.innerHTML = element.name;
+
+                var h3Element = document.createElement("h3");
+                h3Element.innerHTML = element.description;
+
+                divElement.appendChild(h2Element);
+                divElement.appendChild(h3Element);
+
+                document.querySelector(".categories").appendChild(divElement);
+            });
+
+        })
+
+</script>
+
+</html>
