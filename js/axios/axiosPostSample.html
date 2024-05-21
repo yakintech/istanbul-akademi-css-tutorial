@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="axios.js"></script>
+    <style>
+        .addCategoryBox {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .addCategoryBox div {
+            margin-bottom: 10px;
+        }
+
+        .addCategoryBox div label {
+            display: block;
+        }
+
+        .addCategoryBox div input {
+            width: 100%;
+        }
+
+        .addCategoryBox div button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="addCategoryBox">
+        <div>
+            <label for="">Name:</label>
+            <input type="text" id="categoryName" />
+        </div>
+        <div>
+            <label for="">Description:</label>
+            <textarea name="" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button onclick="add()">Add</button>
+        </div>
+    </div>
+</body>
+<script>
+    function add() {
+        let name = document.getElementById("categoryName").value
+        let description = document.getElementById("description").value
+
+        let newCategory = {
+            name, // name : name
+            description // description : description
+        }
+
+        axios.post("https://northwind.vercel.app/api/categories", newCategory)
+            .then(res => {
+                alert("Success!!")
+            })
+    }
+
+
+</script>
+
+</html>
